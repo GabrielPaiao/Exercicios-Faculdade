@@ -18,9 +18,20 @@ class Contato():
         self.telefone = _telefone
 
 def printPessoas(_listaPessoas):
-    print('{:^40}\n{:<5}{:<15}{:<15}{:<15}'.format('PESSOAS', 'ID', 'NOME', 'ID_CONTATO', 'ID_CIDADE'))
+    print('\n{:^40}\n{:<5}{:<15}{:<15}{:<15}'.format('PESSOAS', 'ID', 'NOME', 'ID_CONTATO', 'ID_CIDADE'))
     for pessoa in _listaPessoas:
         print('{:<5}{:<15}{:<15}{:<15}'.format(pessoa.idpessoa, pessoa.nome, pessoa.idcontato, pessoa.idcidade))
+
+def printCidades(_listaCidades):
+    print('\n{:^30}\n{:<5}{:<20}{:25}'.format('CIDADES', 'ID', 'CIDADE', 'ESTADO'))
+    for cidade in _listaCidades:
+        print('{:<5}{:<20}{:<25}'.format(cidade.idcidade, cidade.cidade, cidade.estado))
+
+def printContatos(_listaContatos):
+    print('\n{:^40}\n{:<5}{:<25}{:<30}'.format('CONTATOS', 'ID', 'E-MAIL', 'TELEFONE'))
+    for contato in _listaContatos:
+        print('{:<5}{:<25}{:<30}'.format(contato.idcontato, contato.email, contato.telefone))
+
 
 #main
 # Criando 5 cidades
@@ -59,4 +70,6 @@ listaPessoas = [
     Pessoa(10, "Patrícia", 10, 5)
 ]
 
+printContatos(listaContatos)
+printCidades(listaCidades)
 printPessoas(listaPessoas)
