@@ -1,9 +1,8 @@
 class Pessoa():
-    def __init__(self, _idpessoa=None, _nome=None, _telefone=None, _email=None, _idcidade=None):
+    def __init__(self, _idpessoa=None, _nome=None, _idcontato=None, _idcidade=None):
         self.idpessoa = _idpessoa
         self.nome = _nome
-        self.telefone = _telefone
-        self.email = _email
+        self.idcontato = _idcontato
         self.idcidade = _idcidade
 
 class Cidade():
@@ -12,10 +11,16 @@ class Cidade():
         self.cidade = _cidade
         self.estado = _estado
 
+class Contato():
+    def __init__(self, _idcontato=None, _email=None, _telefone=None):
+        self.idcontato = _idcontato
+        self.email = _email
+        self.telefone = _telefone
+
 def printPessoas(_listaPessoas):
-    print('{:^65}\n{:<5}{:<15}{:<15}{:<25}{:<15}'.format('PESSOAS', 'ID', 'NOME', 'TELEFONE', 'E-MAIL', 'ID_CIDADE'))
+    print('{:^40}\n{:<5}{:<15}{:<15}{:<15}'.format('PESSOAS', 'ID', 'NOME', 'ID_CONTATO', 'ID_CIDADE'))
     for pessoa in _listaPessoas:
-        print('{:<5}{:<15}{:<15}{:<25}{:<15}'.format(pessoa.idpessoa, pessoa.nome, pessoa.telefone, pessoa.email, pessoa.idcidade))
+        print('{:<5}{:<15}{:<15}{:<15}'.format(pessoa.idpessoa, pessoa.nome, pessoa.idcontato, pessoa.idcidade))
 
 #main
 # Criando 5 cidades
@@ -27,18 +32,31 @@ listaCidades = [
     Cidade(5, 'Salvador', 'BA')
 ]
 
+listaContatos = [
+    Contato(1, "joao@example.com", "123456789"),
+    Contato(2, "maria@example.com", "987654321"),
+    Contato(3, "pedro@example.com", "555555555"),
+    Contato(4, "ana@example.com", "999999999"),
+    Contato(5, "carlos@example.com", "111111111"),
+    Contato(6, "julia@example.com", "222222222"),
+    Contato(7, "lucas@example.com", "333333333"),
+    Contato(8, "mariana@example.com", "444444444"),
+    Contato(9, "fernando@example.com", "666666666"),
+    Contato(10, "patricia@example.com", "777777777")
+]
+
 # Criando 10 pessoas
 listaPessoas = [
-    Pessoa(1, 'João', '123456789', 'joao@email.com', 1),
-    Pessoa(2, 'Maria', '987654321', 'maria@email.com', 2),
-    Pessoa(3, 'Pedro', '555555555', 'pedro@email.com', 1),
-    Pessoa(4, 'Ana', '999999999', 'ana@email.com', 3),
-    Pessoa(5, 'Carlos', '111111111', 'carlos@email.com', 2),
-    Pessoa(6, 'Julia', '222222222', 'julia@email.com', 1),
-    Pessoa(7, 'Lucas', '333333333', 'lucas@email.com', 4),
-    Pessoa(8, 'Mariana', '444444444', 'mariana@email.com', 3),
-    Pessoa(9, 'Fernando', '666666666', 'fernando@email.com', 5),
-    Pessoa(10, 'Patrícia', '777777777', 'patricia@email.com', 4)
+    Pessoa(1, "João", 1, 1),
+    Pessoa(2, "Maria", 2, 2),
+    Pessoa(3, "Pedro", 3, 3),
+    Pessoa(4, "Ana", 4, 4),
+    Pessoa(5, "Carlos", 5, 5),
+    Pessoa(6, "Julia", 6, 1),
+    Pessoa(7, "Lucas", 7, 2),
+    Pessoa(8, "Mariana", 8, 3),
+    Pessoa(9, "Fernando", 9, 4),
+    Pessoa(10, "Patrícia", 10, 5)
 ]
 
 printPessoas(listaPessoas)
