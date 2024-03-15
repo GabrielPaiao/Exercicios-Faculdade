@@ -1,0 +1,18 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1{
+    padding: 10px;
+    margin-left: 40px;
+    color: red;
+    background-color: grey;
+}
+
+body{
+    background-color: green;
+}
+
+ol#lista{ /*a # é a id*/
+    font-style: italic;
+}
