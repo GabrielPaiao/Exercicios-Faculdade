@@ -1,18 +1,53 @@
 *{
     font-family: Arial, Helvetica, sans-serif;
+    font-size: 14;
+    color: aliceblue;
 }
 
 h1{
+    font-size: 18;
     padding: 10px;
     margin-left: 40px;
+    text-align: center;
     color: red;
     background-color: grey;
-}
+} /*seletor de tipo*/
 
 body{
-    background-color: green;
+    background-image: url(img/brasileirao.jpg);
+    background-size: cover;
 }
 
 ol#lista{ /*a # é a id*/
     font-style: italic;
 }
+
+#titulos{
+    padding: 10px;
+    margin-left: 40px;
+}
+
+nav>ul:hover{
+    font-weight: bold;
+}
+
+div{
+    margin-left: 20px;
+}
+
+.link_vermelho{ /*isso aqui é uma classe*/
+    color: red;
+}
+
+#albuns{
+    text-align: center;
+    margin: 0 auto;
+}
+
+/*
+li a{
+    -codigo
+}
+para todo filho a de li*/
+
+/*nomes de ids nao podem ser numero, sao igual variaveis*/
