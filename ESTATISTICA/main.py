@@ -4,7 +4,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import norm
 
-# Parâmetros da distribuição normal
 mu = 10    # Média
 sigma = 1  # Desvio padrão
 
@@ -17,11 +16,9 @@ def calculate_probability(a, b, mu, sigma):
     prob = norm.cdf(b, mu, sigma) - norm.cdf(a, mu, sigma)
     return prob
 
-# Intervalos definidos pelo usuário
 a = float(input("Digite o valor inicial do intervalo (a): "))
 b = float(input("Digite o valor final do intervalo (b): "))
 
-# Cálculo da probabilidade
 probability = calculate_probability(a, b, mu, sigma)
 print(f"A probabilidade de que X esteja entre {a} e {b} é {probability:.4f}")
 
