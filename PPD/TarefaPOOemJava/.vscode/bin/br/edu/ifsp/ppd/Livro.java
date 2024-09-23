@@ -1,4 +1,4 @@
-public class Livro implements IEmprestavel
+public class Livro
 {
     private String titulo;
     private Autor autor;
@@ -21,17 +21,5 @@ public class Livro implements IEmprestavel
     public Autor getAutor()
     {
         return this.autor;
-    }
-
-    @Override
-    public void emprestar()
-    {
-        System.out.println("Emprestando esse livro.");
-    }
-
-    @Override
-    public void devolverLivro()
-    {
-        System.out.println("Devolvendo esse livro.");
     }
 }

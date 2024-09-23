@@ -1,5 +1,5 @@
 interface IEmprestavel
 {
-    void emprestar();
-    void devolverLivro();
+    void emprestar(Livro _livro, Membro _membro);
+    void devolver(Livro _livro);
 }

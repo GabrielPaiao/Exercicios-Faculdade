@@ -1,30 +1,31 @@
-public class Membro {
+public class Membro implements IEmprestavel 
+{
     private String nome;
 
     public void setNome(String _nome)
     {
         this.nome = _nome;
     }
-    
-    public void pegarLivroEmprestado(Livro _livro)
+
+    public String getNome()
     {
-        _livro.emprestar()
+        return this.nome;
     }
 
     public void devolverLivro(Livro _livro)
     {
-        _livro.devolverLivro();
+        this.devolver(_livro);
     }
 
     @Override
-    public void emprestar()
+    public void emprestar(Livro _livro, Membro _membro)
     {
-        System.out.println("Emprestando o livro");
+        System.out.println(this.nome + " esta emprestando seu livro ao membro " + _membro.getNome());
     }
 
     @Override
-    public void devolverLivro()
+    public void devolver(Livro _livro)
     {
-        System.out.println("Devolvendo o livro");
+        System.out.println(this.nome + " - Devolvendo o livro '" + _livro.getTitulo() + "' emprestado.");
     }
 }
