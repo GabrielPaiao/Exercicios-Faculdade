@@ -1,0 +1,23 @@
+<%- include('../layouts/main', { title: 'Feedbacks' }) %>
+
+<h1>Feedbacks de Treinamento</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Usuário</th>
+      <th>Simulação</th>
+      <th>Nota</th>
+      <th>Comentários</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% feedbacks.forEach(feedback => { %>
+      <tr>
+        <td><%= feedback.usuario.nome %></td>
+        <td><%= feedback.simulacao.descricao %></td>
+        <td><%= feedback.nota %></td>
+        <td><%= feedback.comentarios || 'Nenhum comentário' %></td>
+      </tr>
+    <% }); %>
+  </tbody>
+</table>

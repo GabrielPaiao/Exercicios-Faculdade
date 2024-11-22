@@ -1,0 +1,31 @@
+<%- include('../layouts/main', { title: 'Equipes de Segurança' }) %>
+
+<h1>Equipes de Segurança</h1>
+<a href="/equipes/create" class="btn">Criar Equipe</a>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome da Equipe</th>
+      <th>Responsável</th>
+      <th>Contato</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% equipes.forEach(equipe => { %>
+      <tr>
+        <td><%= equipe.nome %></td>
+        <td><%= equipe.responsavel %></td>
+        <td><%= equipe.contato %></td>
+        <td>
+          <a href="/equipes/<%= equipe.id %>">Ver</a>
+          <a href="/equipes/<%= equipe.id %>/edit">Editar</a>
+          <form action="/equipes/<%= equipe.id %>?_method=DELETE" method="POST" style="display:inline;">
+            <button type="submit">Excluir</button>
+          </form>
+        </td>
+      </tr>
+    <% }); %>
+  </tbody>
+</table>

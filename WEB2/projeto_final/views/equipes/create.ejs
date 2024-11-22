@@ -1,0 +1,15 @@
+<%- include('../layouts/main', { title: 'Criar Equipe' }) %>
+
+<h1>Criar Equipe de Segurança</h1>
+<form action="/equipes" method="POST">
+  <label for="nome">Nome da Equipe:</label>
+  <input type="text" id="nome" name="nome" required>
+
+  <label for="responsavel">Responsável:</label>
+  <input type="text" id="responsavel" name="responsavel" required>
+
+  <label for="contato">Contato:</label>
+  <input type="text" id="contato" name="contato" required>
+
+  <button type="submit">Salvar</button>
+</form>

@@ -1,0 +1,29 @@
+<%- include('../layouts/main', { title: 'Editar Simulação' }) %>
+
+<h1>Editar Simulação</h1>
+<form action="/simulacoes/<%= simulacao.id %>?_method=PUT" method="POST">
+  <label for="descricao">Descrição:</label>
+  <input type="text" id="descricao" name="descricao" value="<%= simulacao.descricao %>" required>
+
+  <label for="tipoPhishing">Tipo de Phishing:</label>
+  <input type="text" id="tipoPhishing" name="tipoPhishing" value="<%= simulacao.tipoPhishing %>" required>
+
+  <label for="objetivo">Objetivo:</label>
+  <input type="text" id="objetivo" name="objetivo" value="<%= simulacao.objetivo %>" required>
+
+  <label for="usuarioId">Usuário Responsável:</label>
+  <select id="usuarioId" name="usuarioId">
+    <% usuarios.forEach(usuario => { %>
+      <option value="<%= usuario.id %>" <%= usuario.id === simulacao.usuarioId ? 'selected' : '' %>><%= usuario.nome %></option>
+    <% }); %>
+  </select>
+
+  <label for="equipeId">Equipe:</label>
+  <select id="equipeId" name="equipeId">
+    <% equipes.forEach(equipe => { %>
+      <option value="<%= equipe.id %>" <%= equipe.id === simulacao.equipeId ? 'selected' : '' %>><%= equipe.nome %></option>
+    <% }); %>
+  </select>
+
+  <button type="submit">Atualizar</button>
+</form>

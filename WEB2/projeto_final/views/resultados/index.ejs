@@ -1,0 +1,21 @@
+<%- include('../layouts/main', { title: 'Resultados' }) %>
+
+<h1>Resultados</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Simulação</th>
+      <th>Usuário</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% resultados.forEach(resultado => { %>
+      <tr>
+        <td><%= resultado.simulacao.descricao %></td>
+        <td><%= resultado.usuario.nome %></td>
+        <td><%= resultado.status %></td>
+      </tr>
+    <% }); %>
+  </tbody>
+</table>

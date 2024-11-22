@@ -1,0 +1,29 @@
+<%- include('../layouts/main', { title: 'Criar Simulação' }) %>
+
+<h1>Criar Simulação</h1>
+<form action="/simulacoes" method="POST">
+  <label for="descricao">Descrição:</label>
+  <input type="text" id="descricao" name="descricao" required>
+
+  <label for="tipoPhishing">Tipo de Phishing:</label>
+  <input type="text" id="tipoPhishing" name="tipoPhishing" required>
+
+  <label for="objetivo">Objetivo:</label>
+  <input type="text" id="objetivo" name="objetivo" required>
+
+  <label for="usuarioId">Usuário Responsável:</label>
+  <select id="usuarioId" name="usuarioId">
+    <% usuarios.forEach(usuario => { %>
+      <option value="<%= usuario.id %>"><%= usuario.nome %></option>
+    <% }); %>
+  </select>
+
+  <label for="equipeId">Equipe:</label>
+  <select id="equipeId" name="equipeId">
+    <% equipes.forEach(equipe => { %>
+      <option value="<%= equipe.id %>"><%= equipe.nome %></option>
+    <% }); %>
+  </select>
+
+  <button type="submit">Salvar</button>
+</form>

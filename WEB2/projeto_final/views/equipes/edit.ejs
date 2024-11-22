@@ -1,0 +1,15 @@
+<%- include('../layouts/main', { title: 'Editar Equipe' }) %>
+
+<h1>Editar Equipe</h1>
+<form action="/equipes/<%= equipe.id %>?_method=PUT" method="POST">
+  <label for="nome">Nome da Equipe:</label>
+  <input type="text" id="nome" name="nome" value="<%= equipe.nome %>" required>
+
+  <label for="responsavel">Responsável:</label>
+  <input type="text" id="responsavel" name="responsavel" value="<%= equipe.responsavel %>" required>
+
+  <label for="contato">Contato:</label>
+  <input type="text" id="contato" name="contato" value="<%= equipe.contato %>" required>
+
+  <button type="submit">Atualizar</button>
+</form>

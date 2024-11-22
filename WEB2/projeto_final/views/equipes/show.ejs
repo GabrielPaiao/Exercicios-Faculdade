@@ -1,0 +1,18 @@
+<%- include('../layouts/main', { title: 'Detalhes da Equipe' }) %>
+
+<h1>Detalhes da Equipe</h1>
+<p><strong>Nome:</strong> <%= equipe.nome %></p>
+<p><strong>Responsável:</strong> <%= equipe.responsavel %></p>
+<p><strong>Contato:</strong> <%= equipe.contato %></p>
+
+<h2>Simulações Criadas</h2>
+<ul>
+  <% equipe.simulacoes.forEach(simulacao => { %>
+    <li><%= simulacao.descricao %> - <%= simulacao.tipoPhishing %></li>
+  <% }); %>
+</ul>
+
+<a href="/equipes/<%= equipe.id %>/edit" class="btn">Editar</a>
+<form action="/equipes/<%= equipe.id %>?_method=DELETE" method="POST" style="display:inline;">
+  <button type="submit">Excluir</button>
+</form>
