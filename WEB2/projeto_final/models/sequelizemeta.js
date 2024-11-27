@@ -1,3 +1,4 @@
+//models/sequelizemeta.js
 const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('sequelizemeta', {

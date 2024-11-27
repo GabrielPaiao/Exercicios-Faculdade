@@ -3,10 +3,22 @@ const express = require('express');
 const router = express.Router();
 const AuthController = require('../controllers/AuthController');
 
-// Rotas de autenticação
-router.post('/register', AuthController.register);   // Registro
-router.post('/login', AuthController.login);         // Login
-router.post('/logout', AuthController.logout);       // Logout
-router.get('/profile', AuthController.getProfile);   // Obter perfil do usuário
+// Rota para registro
+router.get('/register', (req, res) => {
+  res.render('auth/register');  // Renderiza o formulário de registro
+});
+router.post('/register', AuthController.register);  // Processa o registro
+
+// Rota para login
+router.get('/login', (req, res) => {
+  res.render('auth/login');  // Renderiza o formulário de login
+});
+router.post('/login', AuthController.login);  // Processa o login
+
+// Rota para logout
+router.get('/logout', AuthController.logout);  // Realiza o logout e redireciona
+
+// Rota para obter o perfil do usuário autenticado
+router.get('/profile', AuthController.getProfile);  // Exibe o perfil do usuário logado
 
 module.exports = router;

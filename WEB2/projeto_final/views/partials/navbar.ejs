@@ -1,10 +1,16 @@
 <nav>
-    <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/simulacoes">Simulações</a></li>
-      <li><a href="/resultados">Resultados</a></li>
-      <li><a href="/feedbacks">Feedbacks</a></li>
-      <li><a href="/equipes">Equipes</a></li>
-    </ul>
-  </nav>
-  
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/simulacoes">Simulações</a></li>
+    <li><a href="/resultados">Resultados</a></li>
+    <li><a href="/feedbacks">Feedbacks</a></li>
+    <li><a href="/equipes">Equipes</a></li>
+
+    <% if (userId) { %> <!-- Se o usuário estiver logado -->
+      <li><a href="/logout">Logout</a></li>
+    <% } else { %> <!-- Se o usuário não estiver logado -->
+      <li><a href="/login">Login</a></li>
+      <li><a href="/cadastro">Cadastro</a></li>
+    <% } %>
+  </ul>
+</nav>

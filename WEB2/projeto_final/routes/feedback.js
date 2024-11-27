@@ -2,10 +2,6 @@
 const express = require('express');
 const router = express.Router();
 const FeedbackController = require('../controllers/FeedbackController');
-const { authenticate } = require('../middlewares/authenticate'); // Middleware de autenticação
-
-// Aplicar middleware de autenticação a todas as rotas
-router.use(authenticate);
 
 // CRUD
 router.post('/', FeedbackController.create);          // Criar Feedback

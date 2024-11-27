@@ -1,167 +1,221 @@
 /* Resetando estilos padrão */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  /* Estilo geral do corpo */
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-    margin: 0;
-    padding: 0;
-  }
-  
-  /* Container principal */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilo geral do corpo */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* Container principal */
+.container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Estilo de cabeçalhos */
+h1, h2, h3 {
+  font-size: 1.5em;
+  color: #333;
+}
+
+/* Tabelas */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+}
+
+/* Botões */
+button, .btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+
+button:hover, .btn:hover {
+  background-color: #45a049;
+}
+
+/* Formulários */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input[type="text"], input[type="number"], input[type="email"], select {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+input[type="submit"], button {
+  width: 200px;
+  align-self: center;
+}
+
+/* Links */
+a {
+  color: #4CAF50;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Layout de Responsividade */
+@media (max-width: 768px) {
   .container {
-    width: 80%;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  /* Estilo de cabeçalhos */
-  h1, h2, h3 {
-    font-size: 1.5em;
-    color: #333;
-  }
-  
-  /* Tabelas */
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-  }
-  
-  th, td {
-    padding: 10px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  th {
-    background-color: #4CAF50;
-    color: white;
-  }
-  
-  /* Botões */
-  button, .btn {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-align: center;
-  }
-  
-  button:hover, .btn:hover {
-    background-color: #45a049;
-  }
-  
-  /* Formulários */
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-top: 20px;
-  }
-  
-  label {
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
-  input[type="text"], input[type="number"], input[type="email"], select {
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-  }
-  
-  input[type="submit"], button {
-    width: 200px;
-    align-self: center;
-  }
-  
-  /* Links */
-  a {
-    color: #4CAF50;
-    text-decoration: none;
-  }
-  
-  a:hover {
-    text-decoration: underline;
-  }
-  
-  /* Layout de Responsividade */
-  @media (max-width: 768px) {
-    .container {
       width: 95%;
-    }
-  
-    table {
-      font-size: 14px;
-    }
-  
-    th, td {
-      padding: 8px;
-    }
-  
-    h1, h2, h3 {
-      font-size: 1.2em;
-    }
-  
-    form {
-      margin: 10px;
-    }
   }
-  
-  /* Tabelas responsivas */
-  @media (max-width: 600px) {
-    table {
+
+  table {
+      font-size: 14px;
+  }
+
+  th, td {
+      padding: 8px;
+  }
+
+  h1, h2, h3 {
+      font-size: 1.2em;
+  }
+
+  form {
+      margin: 10px;
+  }
+}
+
+/* Tabelas responsivas */
+@media (max-width: 600px) {
+  table {
       font-size: 12px;
       overflow-x: auto;
       display: block;
-    }
-  
-    th, td {
+  }
+
+  th, td {
       padding: 5px;
-    }
-  
-    button {
+  }
+
+  button {
       width: 100%;
-    }
   }
-  
-  /* Estilos de cabeçalho */
-  header {
-    background-color: #333;
-    color: white;
-    padding: 15px 0;
-    text-align: center;
-  }
-  
-  header h1 {
-    font-size: 2em;
-  }
-  
-  /* Navbar simples */
-  nav {
-    background-color: #4CAF50;
-    padding: 10px;
-    text-align: center;
-  }
-  
-  nav a {
-    color: white;
-    padding: 10px 15px;
-    text-decoration: none;
-    margin: 0 10px;
-    border-radius: 5px;
-  }
-  
-  nav a:hover {
-    background-color: #45a049;
-  }
-  
+}
+
+/* Estilos de cabeçalho */
+header {
+  background-color: #333;
+  color: white;
+  padding: 15px 0;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2em;
+}
+
+/* Navbar simples */
+nav {
+  background-color: #4CAF50;
+  padding: 10px;
+  text-align: center;
+}
+
+nav a {
+  color: white;
+  padding: 10px 15px;
+  text-decoration: none;
+  margin: 0 10px;
+  border-radius: 5px;
+}
+
+nav a:hover {
+  background-color: #45a049;
+}
+
+/* Estilos para a área de login e cadastro */
+.login-register-area {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.login-register-area p {
+  font-size: 1.2em;
+}
+
+.login-register-area .btn-secondary {
+  background-color: #ff9800; /* Cor de destaque para os botões */
+  color: white;
+  border-radius: 5px;
+  padding: 10px 20px;
+  text-transform: uppercase;
+}
+
+.login-register-area .btn-secondary:hover {
+  background-color: #e68900; /* Cor mais escura no hover */
+}
+
+/* Estilos para as cartas de conteúdo */
+.card {
+  margin-bottom: 30px;
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-body {
+  text-align: center;
+}
+
+.card-body .card-title {
+  font-size: 1.1em;
+  margin-bottom: 10px;
+}
+
+.card-body .card-text {
+  font-size: 0.9em;
+  margin-bottom: 15px;
+}
+
+.card-body .btn-primary {
+  background-color: #4CAF50;
+  border-radius: 5px;
+}
+
+.card-body .btn-primary:hover {
+  background-color: #45a049;
+}

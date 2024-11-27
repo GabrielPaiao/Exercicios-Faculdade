@@ -6,9 +6,14 @@ module.exports = {
       descricao: { type: Sequelize.STRING, allowNull: false },
       tipoPhishing: { type: Sequelize.STRING, allowNull: false },
       objetivo: { type: Sequelize.STRING, allowNull: false },
-      id_usuario: {
+      id_usuario: { // FK para Usuario
         type: Sequelize.INTEGER,
         references: { model: 'Usuarios', key: 'id' },
+        onDelete: 'CASCADE',
+      },
+      id_equipe: { // FK para Equipes (novo relacionamento)
+        type: Sequelize.INTEGER,
+        references: { model: 'Equipes', key: 'id' },
         onDelete: 'CASCADE',
       },
       createdAt: { type: Sequelize.DATE, allowNull: false, defaultValue: Sequelize.fn('NOW') },

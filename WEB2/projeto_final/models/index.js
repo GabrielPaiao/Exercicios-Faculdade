@@ -30,6 +30,8 @@ Object.keys(db).forEach(modelName => {
   }
 });
 
+console.log(Object.keys(db)); // Deve incluir: Equipes, Simulacoes, Feedback, Usuario, etc.
+
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 

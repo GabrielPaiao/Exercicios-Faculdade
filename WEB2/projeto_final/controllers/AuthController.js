@@ -1,4 +1,3 @@
-// controllers/AuthController.js
 const { Usuario } = require('../models');
 const bcrypt = require('bcrypt');
 
@@ -28,9 +27,10 @@ module.exports = {
       // Iniciar sessão
       req.session.userId = usuario.id;
 
-      res.status(201).json({ message: 'Usuário registrado com sucesso', usuario });
+      // Redirecionar para a home ou para o login
+      return res.redirect('/');  // Ou para /simulacoes, caso queira redirecionar para a página de simulações após o registro
     } catch (error) {
-      res.status(400).json({ error: 'Erro ao registrar usuário', details: error.message });
+      return res.status(400).json({ error: 'Erro ao registrar usuário', details: error.message });
     }
   },
 
@@ -52,24 +52,25 @@ module.exports = {
       // Iniciar sessão
       req.session.userId = usuario.id;
 
-      res.status(200).json({ message: 'Login bem-sucedido', usuario });
+      // Redirecionar para a home ou para a página de simulações
+      return res.redirect('/');  // Ou redirecionar para /simulacoes
     } catch (error) {
-      res.status(500).json({ error: 'Erro ao fazer login', details: error.message });
+      return res.status(500).json({ error: 'Erro ao fazer login', details: error.message });
     }
   },
 
   // Logout de usuário
   async logout(req, res) {
     try {
-      req.session.destroy(err => {
+      req.session.destroy((err) => {
         if (err) {
           return res.status(500).json({ error: 'Erro ao encerrar sessão' });
         }
         res.clearCookie('connect.sid');
-        res.status(200).json({ message: 'Logout bem-sucedido' });
+        return res.redirect('/');  // Redireciona para a página inicial após logout
       });
     } catch (error) {
-      res.status(500).json({ error: 'Erro ao fazer logout', details: error.message });
+      return res.status(500).json({ error: 'Erro ao fazer logout', details: error.message });
     }
   },
 
@@ -86,7 +87,7 @@ module.exports = {
 
       res.status(200).json(usuario);
     } catch (error) {
-      res.status(500).json({ error: 'Erro ao obter perfil', details: error.message });
+      return res.status(500).json({ error: 'Erro ao obter perfil', details: error.message });
     }
   },
 };

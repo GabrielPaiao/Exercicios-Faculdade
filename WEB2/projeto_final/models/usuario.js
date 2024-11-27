@@ -1,4 +1,4 @@
-// models/Usuario.js
+//models/usuario.js
 module.exports = (sequelize, DataTypes) => {
   const Usuario = sequelize.define('Usuario', {
     id: {
@@ -33,7 +33,7 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   Usuario.associate = (models) => {
-    Usuario.hasMany(models.Simulacao, { foreignKey: 'usuarioId', as: 'simulacoes' });
+    Usuario.hasMany(models.Simulacoes, { foreignKey: 'usuarioId', as: 'simulacoes' });
     Usuario.hasMany(models.Resultado, { foreignKey: 'usuarioId', as: 'resultados' });
     Usuario.hasOne(models.Feedback, { foreignKey: 'usuarioId', as: 'feedback' });
   };

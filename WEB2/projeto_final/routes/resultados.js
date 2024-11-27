@@ -2,10 +2,6 @@
 const express = require('express');
 const router = express.Router();
 const ResultadoController = require('../controllers/ResultadoController');
-const { authenticate } = require('../middlewares/authenticate'); // Middleware de autenticação
-
-// Aplicar middleware de autenticação a todas as rotas
-router.use(authenticate);
 
 // CRUD
 router.post('/', ResultadoController.create);          // Criar Resultado

@@ -1,4 +1,4 @@
-// models/Resultado.js
+// models/resultados.js
 module.exports = (sequelize, DataTypes) => {
   const Resultado = sequelize.define('Resultado', {
     id: {
@@ -34,7 +34,7 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   Resultado.associate = (models) => {
-    Resultado.belongsTo(models.Simulacao, { foreignKey: 'simulacaoId', as: 'simulacao' });
+    Resultado.belongsTo(models.Simulacoes, { foreignKey: 'simulacaoId', as: 'simulacao' });
     Resultado.belongsTo(models.Usuario, { foreignKey: 'usuarioId', as: 'usuario' });
   };
 

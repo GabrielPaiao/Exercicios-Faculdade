@@ -1,4 +1,4 @@
-// models/Feedback.js
+// models/feedbacks.js
 module.exports = (sequelize, DataTypes) => {
   const Feedback = sequelize.define('Feedback', {
     id: {
@@ -39,7 +39,7 @@ module.exports = (sequelize, DataTypes) => {
 
   Feedback.associate = (models) => {
     Feedback.belongsTo(models.Usuario, { foreignKey: 'usuarioId', as: 'usuario' });
-    Feedback.belongsTo(models.Simulacao, { foreignKey: 'simulacaoId', as: 'simulacao' });
+    Feedback.belongsTo(models.Simulacoes, { foreignKey: 'simulacaoId', as: 'simulacao' });
   };
 
   return Feedback;
