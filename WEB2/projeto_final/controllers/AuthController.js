@@ -1,93 +1,65 @@
-const { Usuario } = require('../models');
 const bcrypt = require('bcrypt');
+const { Usuario } = require('../models'); // Ajuste conforme o seu modelo de usuário
 
 module.exports = {
-  // Registro de usuário
-  async register(req, res) {
+  // Registrar um novo usuário
+  register: async (req, res) => {
+    const { nome, email, senha, cargo, departamento } = req.body;
     try {
-      const { nome, email, cargo, departamento, senha } = req.body;
+        // Verificar se o email já está em uso
+        const usuarioExistente = await Usuario.findOne({ where: { email } });
+        if (usuarioExistente) {
+            return res.status(400).json({ error: 'E-mail já está em uso.' });
+        }
 
-      // Verificar se o email já está em uso
-      const existingUser = await Usuario.findOne({ where: { email } });
-      if (existingUser) {
-        return res.status(400).json({ error: 'Email já está em uso' });
-      }
+        // Criptografar a senha
+        const senhaCriptografada = await bcrypt.hash(senha, 10);
 
-      // Criptografar a senha
-      const hashedPassword = await bcrypt.hash(senha, 10);
+        // Criar o novo usuário
+        await Usuario.create({ nome, email, senha: senhaCriptografada, cargo, departamento });
 
-      const usuario = await Usuario.create({
-        nome,
-        email,
-        cargo,
-        departamento,
-        senha: hashedPassword,
-      });
-
-      // Iniciar sessão
-      req.session.userId = usuario.id;
-
-      // Redirecionar para a home ou para o login
-      return res.redirect('/');  // Ou para /simulacoes, caso queira redirecionar para a página de simulações após o registro
+        res.redirect('/auth/login'); // Redireciona para login após o registro
     } catch (error) {
-      return res.status(400).json({ error: 'Erro ao registrar usuário', details: error.message });
+        console.error(error);
+        res.status(500).json({ error: 'Erro ao registrar o usuário.' });
     }
-  },
+},
 
-  // Login de usuário
-  async login(req, res) {
+  // Autenticar o usuário
+  login: async (req, res) => {
+    const { email, senha } = req.body;
     try {
-      const { email, senha } = req.body;
-
+      // Buscar o usuário pelo e-mail
       const usuario = await Usuario.findOne({ where: { email } });
       if (!usuario) {
-        return res.status(400).json({ error: 'Credenciais inválidas' });
+        return res.status(401).json({ error: 'E-mail ou senha inválidos.' });
       }
 
-      const isMatch = await bcrypt.compare(senha, usuario.senha);
-      if (!isMatch) {
-        return res.status(400).json({ error: 'Credenciais inválidas' });
+      // Verificar a senha
+      const senhaValida = await bcrypt.compare(senha, usuario.senha);
+      if (!senhaValida) {
+        return res.status(401).json({ error: 'E-mail ou senha inválidos.' });
       }
 
-      // Iniciar sessão
+      // Salvar o ID do usuário na sessão
       req.session.userId = usuario.id;
 
-      // Redirecionar para a home ou para a página de simulações
-      return res.redirect('/');  // Ou redirecionar para /simulacoes
+      res.redirect('/'); // Redireciona para a página inicial após o login
     } catch (error) {
-      return res.status(500).json({ error: 'Erro ao fazer login', details: error.message });
+      console.error(error);
+      res.status(500).json({ error: 'Erro ao fazer login.' });
     }
   },
 
-  // Logout de usuário
-  async logout(req, res) {
-    try {
-      req.session.destroy((err) => {
-        if (err) {
-          return res.status(500).json({ error: 'Erro ao encerrar sessão' });
-        }
-        res.clearCookie('connect.sid');
-        return res.redirect('/');  // Redireciona para a página inicial após logout
-      });
-    } catch (error) {
-      return res.status(500).json({ error: 'Erro ao fazer logout', details: error.message });
-    }
-  },
-
-  // Obter informações do usuário autenticado
-  async getProfile(req, res) {
-    try {
-      const usuario = await Usuario.findByPk(req.session.userId, {
-        attributes: { exclude: ['senha'] },
-      });
-
-      if (!usuario) {
-        return res.status(404).json({ error: 'Usuário não encontrado' });
+  // Desconectar o usuário
+  logout: (req, res) => {
+    req.session.destroy((err) => {
+      if (err) {
+        console.error(err);
+        return res.status(500).json({ error: 'Erro ao fazer logout.' });
       }
 
-      res.status(200).json(usuario);
-    } catch (error) {
-      return res.status(500).json({ error: 'Erro ao obter perfil', details: error.message });
-    }
+      res.redirect('/'); // Redireciona para a página de login após o logout
+    });
   },
 };

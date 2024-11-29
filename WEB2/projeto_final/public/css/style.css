@@ -27,6 +27,24 @@ h1, h2, h3 {
   color: #333;
 }
 
+/* Mensagem de redirecionamento */
+.redirect-message {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 1.2em;
+  color: #555;
+}
+
+.redirect-message a {
+  color: #4CAF50;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.redirect-message a:hover {
+  text-decoration: underline;
+}
+
 /* Tabelas */
 table {
   width: 100%;
@@ -58,6 +76,18 @@ button, .btn {
 
 button:hover, .btn:hover {
   background-color: #45a049;
+}
+
+.btn-secondary {
+  background-color: #ff9800;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+
+.btn-secondary:hover {
+  background-color: #e68900;
 }
 
 /* Formulários */
@@ -176,7 +206,7 @@ nav a:hover {
 }
 
 .login-register-area .btn-secondary {
-  background-color: #ff9800; /* Cor de destaque para os botões */
+  background-color: #ff9800;
   color: white;
   border-radius: 5px;
   padding: 10px 20px;
@@ -184,7 +214,7 @@ nav a:hover {
 }
 
 .login-register-area .btn-secondary:hover {
-  background-color: #e68900; /* Cor mais escura no hover */
+  background-color: #e68900;
 }
 
 /* Estilos para as cartas de conteúdo */

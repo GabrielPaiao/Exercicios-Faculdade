@@ -1,16 +1,17 @@
 <nav>
   <ul>
     <li><a href="/">Home</a></li>
-    <li><a href="/simulacoes">Simulações</a></li>
-    <li><a href="/resultados">Resultados</a></li>
-    <li><a href="/feedbacks">Feedbacks</a></li>
-    <li><a href="/equipes">Equipes</a></li>
-
-    <% if (userId) { %> <!-- Se o usuário estiver logado -->
-      <li><a href="/logout">Logout</a></li>
-    <% } else { %> <!-- Se o usuário não estiver logado -->
-      <li><a href="/login">Login</a></li>
-      <li><a href="/cadastro">Cadastro</a></li>
+    <% if (userId) { %>
+      <!-- Links acessíveis para usuários logados -->
+      <li><a href="/simulacoes">Simulações</a></li>
+      <li><a href="/resultados">Resultados</a></li>
+      <li><a href="/feedbacks">Feedbacks</a></li>
+      <li><a href="/equipes">Equipes</a></li>
+      <li><a href="/auth/logout">Logout</a></li>
+    <% } else { %>
+      <!-- Links para visitantes -->
+      <li><a href="/auth/login">Login</a></li>
+      <li><a href="/auth/register">Cadastro</a></li>
     <% } %>
   </ul>
 </nav>

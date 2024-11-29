@@ -2,74 +2,85 @@
 <%- include('partials/navbar') %>
 
 <div class="container">
-  <h1 class="text-center mt-5">Bem-vindo ao Simulador de Phishing</h1>
-  <p class="text-center">Escolha uma das opções abaixo para começar a treinar sua equipe:</p>
+  <% if (!userId) { %>
+    <!-- Usuário não autenticado -->
+    <h1 class="text-center mt-5">Bem-vindo ao Simulador de Phishing</h1>
+    <p class="text-center">
+      Para acessar as simulações e gerenciar equipes, por favor, 
+      <a href="/auth/login" class="btn btn-link">faça login</a> ou 
+      <a href="/auth/register" class="btn btn-link">registre-se</a>.
+    </p>
+  <% } else { %>
+    <!-- Usuário autenticado -->
+    <h1 class="text-center mt-5">Bem-vindo ao Simulador de Phishing</h1>
+    <p class="text-center">Escolha uma das opções abaixo para começar a treinar sua equipe:</p>
 
-  <div class="row mt-5">
-    <div class="col-md-3">
-      <div class="card">
-        <img src="/images/email-phishing.jpg" class="card-img-top" alt="Simulação de Phishing por E-mail">
-        <div class="card-body">
-          <h5 class="card-title">Simulação de Phishing por E-mail</h5>
-          <p class="card-text">Teste como sua equipe lida com tentativas de roubo de dados via e-mail.</p>
-          <a href="/simulacoes" class="btn btn-primary">Iniciar Simulação</a>
+    <div class="row mt-5">
+      <div class="col-md-3">
+        <div class="card">
+          <img src="/images/email-phishing.jpg" class="card-img-top" alt="Simulação de Phishing por E-mail">
+          <div class="card-body">
+            <h5 class="card-title">Simulação de Phishing por E-mail</h5>
+            <p class="card-text">Teste como sua equipe lida com tentativas de roubo de dados via e-mail.</p>
+            <a href="/simulacoes" class="btn btn-primary">Iniciar Simulação</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card">
+          <img src="/images/sms-phishing.jpg" class="card-img-top" alt="Simulação de Phishing por SMS">
+          <div class="card-body">
+            <h5 class="card-title">Simulação de Phishing por SMS</h5>
+            <p class="card-text">Verifique como a equipe reage a fraudes por mensagens de texto.</p>
+            <a href="/simulacoes" class="btn btn-primary">Iniciar Simulação</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card">
+          <img src="/images/fake-link.jpg" class="card-img-top" alt="Simulação de Phishing com Link Falso">
+          <div class="card-body">
+            <h5 class="card-title">Simulação de Phishing com Link Falso</h5>
+            <p class="card-text">Avalie como a equipe reage a links maliciosos.</p>
+            <a href="/simulacoes" class="btn btn-primary">Iniciar Simulação</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card">
+          <img src="/images/results-icon.jpg" class="card-img-top" alt="Resultados">
+          <div class="card-body">
+            <h5 class="card-title">Resultados</h5>
+            <p class="card-text">Acompanhe os resultados das simulações realizadas.</p>
+            <a href="/resultados" class="btn btn-primary">Ver Resultados</a>
+          </div>
         </div>
       </div>
     </div>
-    <div class="col-md-3">
-      <div class="card">
-        <img src="/images/sms-phishing.jpg" class="card-img-top" alt="Simulação de Phishing por SMS">
-        <div class="card-body">
-          <h5 class="card-title">Simulação de Phishing por SMS</h5>
-          <p class="card-text">Verifique como a equipe reage a fraudes por mensagens de texto.</p>
-          <a href="/simulacoes" class="btn btn-primary">Iniciar Simulação</a>
+
+    <div class="row mt-5">
+      <div class="col-md-3">
+        <div class="card">
+          <img src="/images/feedback-icon.jpg" class="card-img-top" alt="Feedback">
+          <div class="card-body">
+            <h5 class="card-title">Feedbacks</h5>
+            <p class="card-text">Veja os feedbacks das simulações realizadas pelos usuários.</p>
+            <a href="/feedbacks" class="btn btn-primary">Ver Feedbacks</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card">
+          <img src="/images/team-icon.jpg" class="card-img-top" alt="Equipes">
+          <div class="card-body">
+            <h5 class="card-title">Equipes</h5>
+            <p class="card-text">Gerencie as equipes responsáveis pelas simulações.</p>
+            <a href="/equipes" class="btn btn-primary">Ver Equipes</a>
+          </div>
         </div>
       </div>
     </div>
-    <div class="col-md-3">
-      <div class="card">
-        <img src="/images/fake-link.jpg" class="card-img-top" alt="Simulação de Phishing com Link Falso">
-        <div class="card-body">
-          <h5 class="card-title">Simulação de Phishing com Link Falso</h5>
-          <p class="card-text">Avalie como a equipe reage a links maliciosos.</p>
-          <a href="/simulacoes" class="btn btn-primary">Iniciar Simulação</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-3">
-      <div class="card">
-        <img src="/images/results-icon.jpg" class="card-img-top" alt="Resultados">
-        <div class="card-body">
-          <h5 class="card-title">Resultados</h5>
-          <p class="card-text">Acompanhe os resultados das simulações realizadas.</p>
-          <a href="/resultados" class="btn btn-primary">Ver Resultados</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <div class="row mt-5">
-    <div class="col-md-3">
-      <div class="card">
-        <img src="/images/feedback-icon.jpg" class="card-img-top" alt="Feedback">
-        <div class="card-body">
-          <h5 class="card-title">Feedbacks</h5>
-          <p class="card-text">Veja os feedbacks das simulações realizadas pelos usuários.</p>
-          <a href="/feedbacks" class="btn btn-primary">Ver Feedbacks</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-3">
-      <div class="card">
-        <img src="/images/team-icon.jpg" class="card-img-top" alt="Equipes">
-        <div class="card-body">
-          <h5 class="card-title">Equipes</h5>
-          <p class="card-text">Gerencie as equipes responsáveis pelas simulações.</p>
-          <a href="/equipes" class="btn btn-primary">Ver Equipes</a>
-        </div>
-      </div>
-    </div>
-  </div>
+  <% } %>
 </div>
 
 <%- include('partials/footer') %>
