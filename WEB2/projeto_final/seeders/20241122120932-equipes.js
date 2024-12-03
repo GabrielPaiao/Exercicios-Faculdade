@@ -1,16 +1,16 @@
-// seeds/equipeSeguranca.js
+// seeds/equipes.js
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkInsert('EquipesSeguranca', [
+    await queryInterface.bulkInsert('Equipes', [
       {
-        nome_equipe: 'Equipe A',
+        nome: 'Equipe A',
         responsavel: 'João Silva',
         contato: 'contato@exemplo.com',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        nome_equipe: 'Equipe B',
+        nome: 'Equipe B',
         responsavel: 'Maria Oliveira',
         contato: 'contato2@exemplo.com',
         createdAt: new Date(),
@@ -20,6 +20,6 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkDelete('EquipesSeguranca', null, {});
+    await queryInterface.bulkDelete('Equipes', null, {});
   },
 };

@@ -1,18 +1,18 @@
-// seeds/resultadoSimulacao.js
+// seeds/resultados.js
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkInsert('ResultadosSimulacao', [
+    await queryInterface.bulkInsert('Resultados', [
       {
-        id_simulacao: 1,
-        id_usuario: 1,
-        status: 'Vulnerável',
+        simulacaoId: 1,  // ID de uma Simulação existente
+        usuarioId: 1,    // ID de um Usuário existente
+        status: 'Vulnerável',  // Status que pode ser 'Vulnerável', 'Seguro', etc.
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        id_simulacao: 2,
-        id_usuario: 2,
-        status: 'Seguro',
+        simulacaoId: 2,  // ID de uma Simulação existente
+        usuarioId: 2,    // ID de um Usuário existente
+        status: 'Seguro',  // Status que pode ser 'Vulnerável', 'Seguro', etc.
         createdAt: new Date(),
         updatedAt: new Date(),
       },
@@ -20,6 +20,6 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkDelete('ResultadosSimulacao', null, {});
+    await queryInterface.bulkDelete('Resultados', null, {});
   },
 };

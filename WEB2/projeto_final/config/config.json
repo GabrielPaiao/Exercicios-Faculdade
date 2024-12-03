@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "aluno123",
+    "password": "admin",
     "database": "pesquei",
     "host": "127.0.0.1",
     "dialect": "mysql"

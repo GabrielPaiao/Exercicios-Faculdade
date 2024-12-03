@@ -1,26 +1,53 @@
-'use strict';
 module.exports = {
-  async up(queryInterface, Sequelize) {
+  up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('Simulacoes', {
-      id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
-      descricao: { type: Sequelize.STRING, allowNull: false },
-      tipoPhishing: { type: Sequelize.STRING, allowNull: false },
-      objetivo: { type: Sequelize.STRING, allowNull: false },
-      id_usuario: { // FK para Usuario
+      id: {
         type: Sequelize.INTEGER,
-        references: { model: 'Usuarios', key: 'id' },
+        primaryKey: true,
+        autoIncrement: true,
+      },
+      descricao: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      tipoPhishing: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      objetivo: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      usuarioId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'Usuarios',
+          key: 'id',
+        },
         onDelete: 'CASCADE',
       },
-      id_equipe: { // FK para Equipes (novo relacionamento)
+      equipeId: {
         type: Sequelize.INTEGER,
-        references: { model: 'Equipes', key: 'id' },
+        allowNull: false,
+        references: {
+          model: 'Equipes',
+          key: 'id',
+        },
         onDelete: 'CASCADE',
       },
-      createdAt: { type: Sequelize.DATE, allowNull: false, defaultValue: Sequelize.fn('NOW') },
-      updatedAt: { type: Sequelize.DATE, allowNull: false, defaultValue: Sequelize.fn('NOW') },
+      createdAt: {
+        type: Sequelize.DATE,
+        allowNull: false,
+      },
+      updatedAt: {
+        type: Sequelize.DATE,
+        allowNull: false,
+      },
     });
   },
-  async down(queryInterface, Sequelize) {
+
+  down: async (queryInterface, Sequelize) => {
     await queryInterface.dropTable('Simulacoes');
   },
 };
