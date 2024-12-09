@@ -1,0 +1,16 @@
+<% layout('layout') -%>
+<h2><%= simulacao ? 'Editar Simulação' : 'Nova Simulação' %></h2>
+<form method="POST" action="<%= simulacao ? `/api/simulacoes/${simulacao.id}` : '/api/simulacoes' %>">
+  <label>Data da Simulação: <input type="date" name="dataSimulacao" value="<%= simulacao ? simulacao.dataSimulacao : '' %>"></label><br>
+  <label>Descrição: <input type="text" name="descricao" value="<%= simulacao ? simulacao.descricao : '' %>"></label><br>
+  <label>Tipo de Phishing: 
+    <select name="tipoPhishing">
+      <option value="Email" <%= simulacao && simulacao.tipoPhishing === 'Email' ? 'selected' : '' %>>Email</option>
+      <option value="SMS" <%= simulacao && simulacao.tipoPhishing === 'SMS' ? 'selected' : '' %>>SMS</option>
+      <option value="Link Falso" <%= simulacao && simulacao.tipoPhishing === 'Link Falso' ? 'selected' : '' %>>Link Falso</option>
+    </select>
+  </label><br>
+  <label>Objetivo: <input type="text" name="objetivo" value="<%= simulacao ? simulacao.objetivo : '' %>"></label><br>
+  <label>Equipe Responsável: <input type="text" name="idEquipe" value="<%= simulacao ? simulacao.equipeId : '' %>"></label><br>
+  <button type="submit"><%= simulacao ? 'Atualizar' : 'Cadastrar' %></button>
+</form>

@@ -1,0 +1,23 @@
+<% layout('layout') -%>
+<h2>Lista de Equipes</h2>
+<a href="/api/equipes/form">Nova Equipe</a>
+<table border="1">
+  <tr>
+    <th>ID</th>
+    <th>Nome da Equipe</th>
+    <th>Responsável</th>
+    <th>Contato</th>
+    <th>Ações</th>
+  </tr>
+  <% equipes.forEach(equipe => { %>
+    <tr>
+      <td><%= equipe.id %></td>
+      <td><%= equipe.nomeEquipe %></td>
+      <td><%= equipe.responsavel %></td>
+      <td><%= equipe.contato %></td>
+      <td>
+        <a href="/api/equipes/form/<%= equipe.id %>">Editar</a>
+      </td>
+    </tr>
+  <% }) %>
+</table>

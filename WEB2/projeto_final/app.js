@@ -43,12 +43,12 @@ app.get('/', (req, res) => {
 });
 
 // Importar e registrar rotas
-const authRoutes = require('./routes/auth');  // Rota de autenticação (login, register, logout)
-const simulacoesRoutes = require('./routes/simulacoes');
-const equipesRoutes = require('./routes/equipes');
-const feedbacksRoutes = require('./routes/feedback');
-const resultadosRoutes = require('./routes/resultados');
-const usuariosRoutes = require('./routes/usuarios');
+const authRoutes = require('./routes/authRoutes');  // Rota de autenticação (login, register, logout)
+const simulacoesRoutes = require('./routes/simulacoesRoutes');
+const equipesRoutes = require('./routes/equipesRoutes');
+const feedbacksRoutes = require('./routes/feedbackRoutes');
+const resultadosRoutes = require('./routes/resultadosRoutes');
+const usuariosRoutes = require('./routes/usuariosRoutes');
 
 // Definindo rotas de autenticação
 app.use('/auth', authRoutes);  // Rota para login, register e logout

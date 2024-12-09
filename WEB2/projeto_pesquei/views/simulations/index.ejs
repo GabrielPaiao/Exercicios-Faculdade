@@ -1,0 +1,23 @@
+<% layout('layout') -%>
+<h2>Lista de Simulações</h2>
+<a href="/api/simulacoes/form">Criar Nova Simulação</a>
+<table border="1" cellpadding="5" cellspacing="0">
+  <tr>
+    <th>ID</th>
+    <th>Data</th>
+    <th>Tipo de Phishing</th>
+    <th>Objetivo</th>
+    <th>Ações</th>
+  </tr>
+  <% simulacoes.forEach(simulacao => { %>
+    <tr>
+      <td><%= simulacao.id %></td>
+      <td><%= simulacao.dataSimulacao %></td>
+      <td><%= simulacao.tipoPhishing %></td>
+      <td><%= simulacao.objetivo %></td>
+      <td>
+        <a href="/api/simulacoes/form/<%= simulacao.id %>">Editar</a>
+      </td>
+    </tr>
+  <% }) %>
+</table>

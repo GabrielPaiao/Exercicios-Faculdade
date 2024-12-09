@@ -1,0 +1,10 @@
+<% layout('layout') -%>
+<h2><%= usuario ? 'Editar Usuário' : 'Cadastrar Usuário' %></h2>
+<form method="POST" action="<%= usuario ? `/api/usuarios/${usuario.id}` : '/api/usuarios' %>">
+  <label>Nome: <input type="text" name="nome" value="<%= usuario ? usuario.nome : '' %>"></label><br>
+  <label>Email: <input type="email" name="email" value="<%= usuario ? usuario.email : '' %>"></label><br>
+  <label>Cargo: <input type="text" name="cargo" value="<%= usuario ? usuario.cargo : '' %>"></label><br>
+  <label>Departamento: <input type="text" name="departamento" value="<%= usuario ? usuario.departamento : '' %>"></label><br>
+  <label>Senha: <input type="password" name="senha" <%= usuario ? '' : 'required' %>></label><br>
+  <button type="submit"><%= usuario ? 'Atualizar' : 'Cadastrar' %></button>
+</form>

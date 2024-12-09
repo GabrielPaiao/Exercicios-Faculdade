@@ -1,0 +1,28 @@
+<% layout('layout') -%>
+<h2>Lista de Usuários</h2>
+<a href="/api/usuarios/form">Cadastrar Novo Usuário</a>
+<table border="1" cellpadding="5" cellspacing="0">
+  <tr>
+    <th>ID</th>
+    <th>Nome</th>
+    <th>Email</th>
+    <th>Cargo</th>
+    <th>Departamento</th>
+    <th>Ações</th>
+  </tr>
+  <% usuarios.forEach(usuario => { %>
+    <tr>
+      <td><%= usuario.id %></td>
+      <td><%= usuario.nome %></td>
+      <td><%= usuario.email %></td>
+      <td><%= usuario.cargo %></td>
+      <td><%= usuario.departamento %></td>
+      <td>
+        <a href="/api/usuarios/form/<%= usuario.id %>">Editar</a> |
+        <form method="POST" action="/api/usuarios/<%= usuario.id %>?_method=DELETE" style="display: inline;">
+          <button type="submit">Excluir</button>
+        </form>
+      </td>
+    </tr>
+  <% }) %>
+</table>

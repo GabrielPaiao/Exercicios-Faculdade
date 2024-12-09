@@ -1,0 +1,8 @@
+<% layout('layout') -%>
+<h2><%= equipe ? 'Editar Equipe' : 'Nova Equipe' %></h2>
+<form method="POST" action="<%= equipe ? `/api/equipes/${equipe.id}` : '/api/equipes' %>">
+  <label>Nome da Equipe: <input type="text" name="nomeEquipe" value="<%= equipe ? equipe.nomeEquipe : '' %>"></label><br>
+  <label>Responsável: <input type="text" name="responsavel" value="<%= equipe ? equipe.responsavel : '' %>"></label><br>
+  <label>Contato: <input type="text" name="contato" value="<%= equipe ? equipe.contato : '' %>"></label><br>
+  <button type="submit"><%= equipe ? 'Atualizar' : 'Cadastrar' %></button>
+</form>
