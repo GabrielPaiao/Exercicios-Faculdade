@@ -1,3 +1,4 @@
+//migration create-resultados
 'use strict';
 module.exports = {
   async up(queryInterface, Sequelize) {

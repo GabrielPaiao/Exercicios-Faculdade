@@ -1,3 +1,4 @@
+//controllers/AuthController.js
 const bcrypt = require('bcrypt');
 const { Usuario } = require('../models'); // Ajuste conforme o seu modelo de usuário
 

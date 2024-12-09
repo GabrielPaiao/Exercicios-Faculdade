@@ -1,5 +1,6 @@
-<%- include('../layouts/main', { title: 'Editar Simulação' }) %>
+<!-- views/simulacoes/edit.ejs -->
 
+<%- include('../layouts/main', { title: 'Editar Simulação' }) %>
 <h1>Editar Simulação</h1>
 <form action="/simulacoes/<%= simulacao.id %>?_method=PUT" method="POST">
   <label for="descricao">Descrição:</label>
