@@ -1,0 +1,16 @@
+<h2><%= usuario ? 'Editar Usuário' : 'Cadastrar Novo Usuário' %></h2>
+<form method="POST" action="<%= usuario ? `/usuarios/${usuario.id}?_method=PUT` : '/usuarios' %>">
+  <label>Nome:</label>
+  <input type="text" name="nome" value="<%= usuario ? usuario.nome : '' %>" required>
+  <label>Email:</label>
+  <input type="email" name="email" value="<%= usuario ? usuario.email : '' %>" required>
+  <label>Cargo:</label>
+  <input type="text" name="cargo" value="<%= usuario ? usuario.cargo : '' %>">
+  <label>Departamento:</label>
+  <input type="text" name="departamento" value="<%= usuario ? usuario.departamento : '' %>">
+  <% if (!usuario) { %>
+    <label>Senha:</label>
+    <input type="password" name="senha" required>
+  <% } %>
+  <button type="submit"><%= usuario ? 'Salvar Alterações' : 'Cadastrar' %></button>
+</form>

@@ -1,0 +1,24 @@
+<h2>Lista de Resultados</h2>
+<a href="/home">Voltar para Home</a>
+<table border="1" cellpadding="5" cellspacing="0">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Usuário</th>
+      <th>Simulação</th>
+      <th>Status</th>
+      <th>Data</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% resultados.forEach(resultado => { %>
+      <tr>
+        <td><%= resultado.id %></td>
+        <td><%= resultado.usuarioId %></td>
+        <td><%= resultado.simulacaoId %></td>
+        <td><%= resultado.status %></td>
+        <td><%= resultado.dataResultado %></td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>

@@ -1,0 +1,26 @@
+<h2>Lista de Equipes</h2>
+<a href="/home">Voltar para Home</a> | <a href="/equipes/form">Criar Nova Equipe</a>
+<table border="1" cellpadding="5" cellspacing="0">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nome da Equipe</th>
+      <th>Responsável</th>
+      <th>Contato</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% equipes.forEach(equipe => { %>
+      <tr>
+        <td><%= equipe.id %></td>
+        <td><%= equipe.nomeEquipe %></td>
+        <td><%= equipe.responsavel %></td>
+        <td><%= equipe.contato %></td>
+        <td>
+          <a href="/equipes/form/<%= equipe.id %>">Editar</a>
+        </td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>

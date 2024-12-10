@@ -1,0 +1,26 @@
+<h2>Lista de Simulações</h2>
+<a href="/home">Voltar para Home</a> | <a href="/simulacoes/form">Criar Nova Simulação</a>
+<table border="1" cellpadding="5" cellspacing="0">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Data</th>
+      <th>Tipo de Phishing</th>
+      <th>Objetivo</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% simulacoes.forEach(simulacao => { %>
+      <tr>
+        <td><%= simulacao.id %></td>
+        <td><%= simulacao.dataSimulacao %></td>
+        <td><%= simulacao.tipoPhishing %></td>
+        <td><%= simulacao.objetivo %></td>
+        <td>
+          <a href="/simulacoes/form/<%= simulacao.id %>">Editar</a>
+        </td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>

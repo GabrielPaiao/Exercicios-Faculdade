@@ -1,36 +1,24 @@
-// models/index.js
 const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');
-const basename = path.basename(__filename);
-const env = process.env.NODE_ENV || 'development';
-const config = require(__dirname + '/../config/config.json')[env];
+const sequelize = require('../config/database');
+
+// Para importar todos os modelos automaticamente
 const db = {};
 
-const sequelize = new Sequelize(config.database, config.username, config.password, config);
-
-fs
-  .readdirSync(__dirname)
-  .filter(file => {
-    return (
-      file.indexOf('.') !== 0 &&
-      file !== basename &&
-      file.slice(-3) === '.js'
-    );
-  })
-  .forEach(file => {
+fs.readdirSync(__dirname)
+  .filter((file) => file !== 'index.js')  // Ignora o próprio arquivo 'index.js'
+  .forEach((file) => {
     const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes);
-    db[model.name] = model;
+    db[model.name] = model;  // Adiciona o modelo ao objeto db
   });
 
-// Definir associações
-Object.keys(db).forEach(modelName => {
+// Associar modelos entre si, caso existam relações
+Object.keys(db).forEach((modelName) => {
   if (db[modelName].associate) {
-    db[modelName].associate(db);
+    db[modelName].associate(db);  // Chama o método associate (se existir) para associar os modelos
   }
 });
-
-console.log(Object.keys(db)); // Deve incluir: Equipes, Simulacoes, Feedback, Usuario, etc.
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;

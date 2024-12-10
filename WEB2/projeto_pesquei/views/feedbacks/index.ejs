@@ -1,0 +1,24 @@
+<h2>Lista de Feedbacks</h2>
+<a href="/home">Voltar para Home</a>
+<table border="1" cellpadding="5" cellspacing="0">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Usuário</th>
+      <th>Simulação</th>
+      <th>Nota</th>
+      <th>Comentários</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% feedbacks.forEach(feedback => { %>
+      <tr>
+        <td><%= feedback.id %></td>
+        <td><%= feedback.usuarioId %></td>
+        <td><%= feedback.simulacaoId %></td>
+        <td><%= feedback.nota %></td>
+        <td><%= feedback.comentarios %></td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
