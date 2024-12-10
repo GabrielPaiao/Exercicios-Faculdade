@@ -1,4 +1,3 @@
-<% layout('layout') -%>
 <h2><%= simulacao ? 'Editar Simulação' : 'Nova Simulação' %></h2>
 <form method="POST" action="<%= simulacao ? `/api/simulacoes/${simulacao.id}` : '/api/simulacoes' %>">
   <label>Data da Simulação: <input type="date" name="dataSimulacao" value="<%= simulacao ? simulacao.dataSimulacao : '' %>"></label><br>

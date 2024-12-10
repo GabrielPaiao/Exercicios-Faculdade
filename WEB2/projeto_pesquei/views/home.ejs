@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/styles.css">
+  <title>Home</title>
+</head>
+<body>
+  <h1>Bem-vindo à Home</h1>
+  <p>Olá, <%= user.nome %>!</p>
+  <h3>Escolha uma opção no menu para começar.</h3>
+
+  <!-- Menu de navegação -->
+  <nav>
+    <a href="/usuarios">Usuários</a>
+    <a href="/equipes">Equipes</a>
+    <a href="/simulacoes">Simulações</a>
+    <a href="/resultados">Resultados</a>
+    <a href="/feedbacks">Feedbacks</a>
+    <form action="/logout" method="POST" style="display: inline;">
+      <button type="submit">Sair</button>
+    </form>
+  </nav>
+</body>
+</html>

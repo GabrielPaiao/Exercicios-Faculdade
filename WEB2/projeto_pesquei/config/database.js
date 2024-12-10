@@ -1,19 +1,22 @@
+// config/database.js
 const { Sequelize } = require('sequelize');
 
-// Configurando a conexão com o banco de dados MySQL
-const sequelize = new Sequelize('nome_do_banco', 'usuario', 'senha', {
+const sequelize = new Sequelize({
+  dialect: 'mysql', 
   host: 'localhost',
-  dialect: 'mysql',
-  logging: false, // Desabilita logs no console
+  username: 'root', 
+  password: 'admin',
+  database: 'pesquei',  
+  logging: false,  
 });
 
-// Testando a conexão com o banco
+// Testa a conexão
 sequelize.authenticate()
   .then(() => {
-    console.log('Conexão com o banco de dados bem-suced!');
+    console.log('Conexão bem-sucedida com o banco de dados!');
   })
-  .catch((error) => {
-    console.error('Erro ao conectar com o banco de dados:', error);
+  .catch((err) => {
+    console.error('Erro ao conectar ao banco de dados:', err);
   });
 
 module.exports = sequelize;

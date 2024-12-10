@@ -1,109 +1,186 @@
-/* Reset básico */
+/* Resetando margens e preenchimentos */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  /* Geral */
-  body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333;
-  }
-  
-  /* Container central */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Definindo cores principais */
+:root {
+  --verde-kentucky: #3A6F45; /* Verde Kentucky */
+  --branco: #FFFFFF;
+  --cinza-claro: #F4F7FA;
+  --cinza-escuro: #333333;
+  --cinza-claro-escuro: #A0A0A0; /* Cor de texto suave para links */
+  --verde-escuro: #2e5d3e; /* Cor mais escura do verde */
+}
+
+/* Estilos gerais */
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--cinza-claro);
+  color: var(--cinza-escuro);
+  line-height: 1.6;
+  padding: 20px;
+}
+
+/* Cabeçalho */
+header {
+  background-color: var(--verde-kentucky);
+  color: var(--branco);
+  padding: 20px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+header h1 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+/* Containers principais */
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+/* Tabelas */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table, th, td {
+  border: 1px solid #ddd;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: var(--verde-kentucky);
+  color: var(--branco);
+}
+
+/* Formulários */
+form {
+  background-color: var(--branco);
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+form input, form select, form textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+form button {
+  background-color: var(--verde-kentucky);
+  color: var(--branco);
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: var(--verde-escuro); /* Cor mais escura para o efeito de hover */
+}
+
+/* Rodapé */
+footer {
+  text-align: center;
+  margin-top: 40px;
+  padding: 10px;
+  background-color: var(--verde-kentucky);
+  color: var(--branco);
+  border-radius: 5px;
+}
+
+/* Estilo para links */
+a {
+  color: var(--cinza-claro-escuro); /* Cor suave para links */
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Navbar */
+nav {
+  background-color: var(--verde-kentucky);
+  padding: 10px 0;
+  text-align: center;
+  width: 100%;
+}
+
+nav a {
+  color: var(--branco); /* Texto branco para links */
+  text-decoration: none;
+  font-weight: bold; /* Adiciona negrito aos links */
+  padding: 10px 20px;
+}
+
+nav a:hover {
+  background-color: var(--verde-escuro); /* Cor mais escura para o efeito de hover */
+  border-radius: 5px;
+}
+
+/* Navbar na Home */
+nav.home-nav {
+  background-color: var(--verde-kentucky);
+}
+
+nav.home-nav a {
+  color: var(--branco) !important; /* Garante que os links na home sejam brancos */
+  font-weight: bold !important; /* Garante que os links na home sejam negritos */
+  text-transform: uppercase; /* Texto em maiúsculas */
+}
+
+nav.home-nav a:hover {
+  background-color: var(--verde-escuro); /* Cor mais escura para o efeito de hover */
+  border-radius: 5px;
+}
+
+/* Estilo para a página Home */
+.home-title {
+  font-size: 2rem;
+  margin-top: 20px;
+  font-weight: bold; /* Título da home em negrito */
+  color: var(--verde-kentucky);
+}
+
+.home-content {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-top: 20px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
   .container {
-    max-width: 1200px;
-    margin: 20px auto;
-    padding: 10px;
+    width: 95%;
   }
-  
-  /* Estilização básica */
-  h2 {
-    color: #333;
-    margin-bottom: 10px;
+
+  header h1 {
+    font-size: 1.5rem;
   }
-  
-  a {
-    color: #007bff;
-    text-decoration: none;
-  }
-  
-  a:hover {
-    text-decoration: underline;
-  }
-  
-  /* Tabela */
+
   table {
-    width: 100%;
-    margin: 20px 0;
-    border-collapse: collapse;
+    font-size: 14px;
   }
-  
-  table th,
-  table td {
-    padding: 8px;
-    text-align: left;
-    border: 1px solid #ddd;
+
+  .home-title {
+    font-size: 1.5rem;
   }
-  
-  table th {
-    background-color: #007bff;
-    color: white;
-  }
-  
-  /* Botões */
-  button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Formulários */
-  form {
-    margin: 20px 0;
-    padding: 15px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-  }
-  
-  form label {
-    margin: 10px 0;
-    display: block;
-  }
-  
-  /* Responsividade para smartphones */
-  @media (max-width: 768px) {
-    .container {
-      padding: 5px;
-    }
-  
-    h2 {
-      font-size: 1.5em;
-    }
-  
-    table td,
-    table th {
-      font-size: 0.9em;
-    }
-  
-    button {
-      width: 100%;
-      padding: 10px;
-    }
-  
-    form {
-      padding: 10px;
-    }
-  }
-  
+}

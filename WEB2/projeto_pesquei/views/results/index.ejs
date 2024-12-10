@@ -1,20 +1,24 @@
-<% layout('layout') -%>
-<h2>Resultados</h2>
-<table border="1">
-  <tr>
-    <th>ID</th>
-    <th>Usuario</th>
-    <th>Simulação</th>
-    <th>Status</th>
-    <th>Data</th>
-  </tr>
-  <% resultados.forEach(resultado => { %>
+<h2>Lista de Resultados</h2>
+<a href="/home">Voltar para Home</a>
+<table border="1" cellpadding="5" cellspacing="0">
+  <thead>
     <tr>
-      <td><%= resultado.id %></td>
-      <td><%= resultado.usuarioId %></td>
-      <td><%= resultado.simulacaoId %></td>
-      <td><%= resultado.status %></td>
-      <td><%= resultado.dataResultado %></td>
+      <th>ID</th>
+      <th>Usuário</th>
+      <th>Simulação</th>
+      <th>Status</th>
+      <th>Data</th>
     </tr>
-  <% }) %>
+  </thead>
+  <tbody>
+    <% resultados.forEach(resultado => { %>
+      <tr>
+        <td><%= resultado.id %></td>
+        <td><%= resultado.usuarioId %></td>
+        <td><%= resultado.simulacaoId %></td>
+        <td><%= resultado.status %></td>
+        <td><%= resultado.dataResultado %></td>
+      </tr>
+    <% }) %>
+  </tbody>
 </table>
